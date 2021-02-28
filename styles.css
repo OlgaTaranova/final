@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+#first_screen {
+    display: none;
+}
 
 /* AUTENTIFICATION */
 
@@ -89,4 +92,37 @@
 }
 .registration .btn {
     width: 55%;
+}
+
+
+/*MAIN SCREEN*/
+
+#main_screen {
+    /* display: none; */
+    padding: 20px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.exit {
+    width: 70px;
+    height: 40px;
+    background-color: #3390dd;
+    border: none;
+    border-radius: 10px;
+    font: 16px 'Arial', sans-serif;
+    color: white;
+}
+.exit:hover {
+    cursor: pointer;
+    background-color: #2d70a7;
+}
+
+#clients {
+    padding: 5%;
+}
+td, th {
+    padding: 15px;
+    border: 1px solid black;
 }
