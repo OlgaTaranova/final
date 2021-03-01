@@ -191,6 +191,23 @@ async function createClientsTable() {
 
     }
 
+    let extraInfo = document.createElement('div');
+    extraInfo.classList.add('extraInfo');
+
+    let men = document.createElement('div');
+    let women = document.createElement('div');
+    let balance = document.createElement('div');
+
+    let menAmount = 0;
+    let womenAmount = 0;
+    for (let i = 0; i < json.length; i++) {
+        if(json.gender == 'male') {
+            menAmount++;
+        } else if(json.gender == 'male') {
+            menAmount++;
+        } 
+    }
+
     clientsTab.append(table);
 }
 
