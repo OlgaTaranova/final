@@ -54,7 +54,7 @@
         </div>
 
         <div id="main_screen">
-            <header class="header">
+            <header class="header" id="header">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                       <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#main" role="tab" aria-controls="home" aria-selected="true">Главная</a>
@@ -73,7 +73,10 @@
                 <div class="tab-pane fade show active" id="main" role="tabpanel" aria-labelledby="home-tab">
                     <p>Приветственный текст</p>
                 </div>
-                <div class="tab-pane fade" id="clients" role="tabpanel" aria-labelledby="profile-tab"></div>
+                <div class="tab-pane fade" id="clients" role="tabpanel" aria-labelledby="profile-tab">
+                    <table class="clients_table"></table>
+                   <button class="backToTop"><a href="#header" class="backToTopLink">Вверх</a></button>
+                </div>
                 <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="contact-tab">
                     <div id="map"></div>
                 </div>

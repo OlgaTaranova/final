@@ -7,6 +7,9 @@ const regPage = document.querySelector('.registration');
 const regLink = document.querySelector('.registration_link');
 const regBtn = document.getElementById('registrate_btn');
 const enterBtn = document.getElementById('enter_btn');
+const exitBtn = document.querySelector('.exit');
+const table = document.querySelector('.clients_table');
+
 
 const enterUsername = document.getElementById('enter_username');
 const enterPassword = document.getElementById('enter_password');
@@ -105,6 +108,10 @@ function enterApp() {
     
 }
 
+function exit() {
+        firstScreen.style.display = 'block';
+        mainScreen.style.display = 'none';
+}
 function getUserDevice() {
     let deviceInfo = document.createElement('p');
     let info = navigator.userAgent;
@@ -116,11 +123,7 @@ function getUserDevice() {
 async function createClientsTable() {
     let response = await fetch('https://gist.githubusercontent.com/oDASCo/3f4014d24dc79e1e29b58bfa96afaa1b/raw/677516ee3bd278f7e3d805108596ca431d00b629/db.json');
 
-    let json = await response.json();
-    let table = document.createElement('table');
-    
-
-    
+    let json = await response.json();   
     
     let tr = document.createElement('tr');
         
@@ -173,6 +176,13 @@ async function createClientsTable() {
         tdPhone.innerHTML = json[i].phone;
         tdBalance.innerHTML = json[i].balance;
         tdDate.innerHTML = `${day}:${month}:${year}`;
+        tdDate.style.position = 'relative';
+
+
+        let btn = document.createElement('button');
+        btn.innerHTML = 'X';
+        btn.classList.add('delete');
+        tdDate.append(btn);
 
         tr.append(tdName);
         tr.append(tdCompany);
@@ -180,6 +190,7 @@ async function createClientsTable() {
         tr.append(tdPhone);
         tr.append(tdBalance);
         tr.append(tdDate);
+        
 
         if(json[i].isActive) {
             tr.style.background = 'white';
@@ -233,7 +244,34 @@ async function createClientsTable() {
     clientsTab.append(table);
 }
 
+function deleteRow(event) {
+    if (event.target.className != 'delete') {
+        return;
+    } else {
+        let  confirmDelete = confirm('Вы действительно хотите удалить эту сроку?');
+        if(confirmDelete) {
+            let tr = event.target.closest('tr');
+            tr.remove();
 
+            let infoMessage = document.createElement('div');
+            let infoExit = document.createElement('span');
+
+            infoMessage.classList.add('infoMessage');
+            infoMessage.innerHTML = 'Строка успешно удалена';
+
+            infoExit.classList.add('infoExit');
+            infoExit.innerHTML = 'X';
+
+            infoMessage.append(infoExit);
+            mainScreen.append(infoMessage);
+
+            infoExit.onclick = function() {
+                infoMessage.style.display = 'none';
+            }
+}           
+        }
+    }
+    
 
 
 
@@ -243,6 +281,8 @@ async function createClientsTable() {
 regLink.addEventListener('click', openRegForm);
 regBtn.addEventListener('click', registrate);
 enterBtn.addEventListener('click', enterApp);
+exitBtn.addEventListener('click', exit);
+table.addEventListener('click', deleteRow);
 enterUsername.addEventListener('change', checkInputs);
 enterPassword.addEventListener('change', checkInputs);
 regUsername.addEventListener('change', checkRegInputs);
