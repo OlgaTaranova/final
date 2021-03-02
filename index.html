@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head meta charset="utf-8">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Final project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     </head>
     <body>
@@ -50,7 +53,234 @@
             </div>
         </div>
 
+        <div id="main_screen">
+            <header class="header" id="header">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#main" role="tab" aria-controls="home" aria-selected="true">Главная</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#clients" role="tab" aria-controls="profile" aria-selected="false">Клиенты</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#map" role="tab" aria-controls="contact" aria-selected="false">Карта</a>
+                    </li>
+                  </ul>
+                  <button class="exit">Выход</button>
+            </header>
+           
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="main" role="tabpanel" aria-labelledby="home-tab">
+                    <p>Приветственный текст</p>
+                </div>
+                <div class="tab-pane fade" id="clients" role="tabpanel" aria-labelledby="profile-tab">
+                    <table class="clients_table"></table>
+                   <button class="backToTop"><a href="#header" class="backToTopLink">Вверх</a></button>
+                </div>
+                <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="contact-tab">
+                    <div id="map"></div>
+                </div>
+              </div>
+              
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+ 
+
+<script>
         
+    let map;
+    let styles = [
+    {
+  "featureType": "all",
+  "elementType": "all",
+  "stylers": [
+      
+      {
+          "weight": "0.01"
+      }
+  ]
+},
+        {
+            "featureType": "administrative.country",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.country",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "administrative.province",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "landscape",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#dde0e4"
+                }
+            ]
+        },
+        {
+            "featureType": "landscape",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#f6f6f6"
+                }
+            ]
+        },
+        {
+            "featureType": "water",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        }
+    ];
+    
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 34.40082528239003, lng: 16.99734345732416},
+        zoom: 2,
+        disableDefaultUI: true,
+        
+      });
+      
+       marker = new google.maps.Marker({
+                position: {lat: 55.617629155073985, lng: -118.88156248797436},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+    
+      marker = new google.maps.Marker({
+                position: {lat: 65.11991396719912, lng: -158.871794233226},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+
+
+
+       marker = new google.maps.Marker({
+                position: {lat: 34.97896109547272, lng: -83.63742089452825},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+      
+
+      marker = new google.maps.Marker({
+                position: {lat: -12.231040712131923, lng: -39.73858151628167},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+      
+
+         marker = new google.maps.Marker({
+                position: {lat: 82.15418599286265, lng: -78.0462512164574},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+      
+  
+    
+        marker = new google.maps.Marker({
+                position: {lat: 65.55545042444581, lng: -45.02434406726646},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+      
+         marker = new google.maps.Marker({
+                position: {lat: 61.85742064964765, lng: 7.23573514271245},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+          
+      marker = new google.maps.Marker({
+                position: {lat: -20.568610243978103, lng: 23.445589414953513},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+
+       marker = new google.maps.Marker({
+                position: {lat: 25.932825757582137, lng: 81.09297910959023},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+       
+      marker = new google.maps.Marker({
+                position: {lat: 70.53049666952494, lng: 81.49064264011882},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+       
+       marker = new google.maps.Marker({
+                position: {lat: 60.60028333840539, lng: 97.25604655112262},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+      
+       marker = new google.maps.Marker({
+                position: {lat: 66.02718271201344, lng: 136.3465849919132},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+      
+       marker = new google.maps.Marker({
+                position: {lat: 65.8567479243026, lng: 172.09247775705967},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+    
+       marker = new google.maps.Marker({
+                position: {lat: -7.533226028350088, lng: 109.94009876909695},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+      
+      
+        marker = new google.maps.Marker({
+                position: {lat: -34.627487366126324, lng: 147.47752462440957},
+                map: map,
+         animation: google.maps.Animation.DROP
+            });
+      
+      
+    map.setOptions({styles: styles});
+    
+     
+    }
+    </script>
+     <script
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuOFsAMnKRlA9dLQUQhwp2IGF-5mQMMSk&callback=initMap&libraries=&v=weekly"
+     defer
+   ></script>
         <script src="index.js"></script>
     </body>
 </html>

@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+#first_screen {
+    display: none;
+}
 
 /* AUTENTIFICATION */
 
@@ -89,4 +92,126 @@
 }
 .registration .btn {
     width: 55%;
+}
+
+
+/*MAIN SCREEN*/
+
+#main_screen {
+    /* display: none; */
+    position: relative;
+    padding: 20px;
+    background: #f7f4e0;
+    height: 100vh;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.exit {
+    width: 70px;
+    height: 40px;
+    background-color: #3390dd;
+    border: none;
+    border-radius: 10px;
+    font: 16px 'Arial', sans-serif;
+    color: white;
+}
+.exit:hover {
+    cursor: pointer;
+    background-color: #2d70a7;
+}
+
+#clients {
+    padding: 5%;
+    position: relative;
+}
+td, th {
+    padding: 15px;
+    border: 1px solid black;
+}
+
+.extraInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    width: 80%;
+}
+.extraInfo span {
+font-weight: bold;
+}
+#map {
+    width: 100%;
+  height: 55rem;
+    
+    margin-bottom: 10rem;
+  }
+.delete {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(194, 36, 36);
+    color: white;
+    font-weight: bold;
+}
+.delete:hover {
+    background-color: rgb(150, 25, 25);
+}
+.delete:checked {
+    outline: none;
+}
+.infoMessage {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+.infoExit {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+   
+
+    background-color: transparent;
+    color: red;
+    font: 18px 'Arial', sans-serif;
+}
+.infoExit:hover {
+    cursor: pointer;
+    font: bold 18px 'Arial', sans-serif;
+}
+
+.backToTop {
+    position: absolute;
+    bottom: 20px;
+    width: 70px;
+    height: 40px;
+    background-color: #3390dd;
+    border: none;
+    border-radius: 10px;   
+}
+
+.backToTop:hover {
+    cursor: pointer;
+    background-color: #2d70a7;
+}
+
+.backToTopLink {
+    text-decoration: none;
+    font: bold 16px 'Arial', sans-serif;
+    color: white;
+}
+.backToTopLink:hover {
+    color: white;
+}
 }
