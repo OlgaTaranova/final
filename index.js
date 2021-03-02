@@ -200,13 +200,35 @@ async function createClientsTable() {
 
     let menAmount = 0;
     let womenAmount = 0;
+    let maxBalance = 0;
     for (let i = 0; i < json.length; i++) {
-        if(json.gender == 'male') {
+        if(json[i].gender == 'male') {
             menAmount++;
-        } else if(json.gender == 'male') {
-            menAmount++;
+        } else if(json[i].gender == 'female') {
+            womenAmount++;
         } 
+        let balance = json[i].balance.slice(1).split('');
+        for (let i = 0; i < balance.length; i++) {
+            if(balance[i] === ',') {
+                balance.splice(i, 1);
+            }
+        }
+
+        if(+balance.join('') > maxBalance) {
+            maxBalance = +balance.join('');
+        }
+        
     }
+
+    men.innerHTML = `<span>Количество мужчин:</span> ${menAmount}`;
+    women.innerHTML = `<span>Количество женщин:</span> ${womenAmount}`;
+    balance.innerHTML = `<span>Максимальный баланс:</span> ${maxBalance}$`;
+
+    extraInfo.append(men);
+    extraInfo.append(women);
+    extraInfo.append(balance);
+
+    clientsTab.append(extraInfo);
 
     clientsTab.append(table);
 }
